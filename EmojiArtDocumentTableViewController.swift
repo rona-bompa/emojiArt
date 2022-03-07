@@ -11,8 +11,6 @@ class EmojiArtDocumentTableViewController: UITableViewController {
 
     var emojiArtDocuments = ["One", "Two", "Three"]
 
-
-
     // MARK: - Table view data source methods
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,7 +34,12 @@ class EmojiArtDocumentTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
-
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if splitViewController?.preferredDisplayMode != UISplitViewController.DisplayMode.oneOverSecondary {
+            splitViewController?.preferredDisplayMode = UISplitViewController.DisplayMode.oneOverSecondary
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
